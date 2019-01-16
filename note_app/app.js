@@ -8,8 +8,9 @@ const os = require('os');
 
 var user = os.userInfo();
 
+// template strings (left of the 1 key on keyboard) `` type things as normal which allows js variable with ${} ES6 feature
 
-fs.appendFileSync('greetings.txt', 'Hello ' + user.username + '!', function (err) {
+fs.appendFileSync('greetings.txt', `Hello ${user.username}!`, function (err) {
   if (err) {
     console.log('unable to write to file');
   }
