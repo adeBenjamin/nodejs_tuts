@@ -7,11 +7,10 @@ const fs = require('fs');
 const os = require('os');
 
 var user = os.userInfo();
-console.log(user);
-/*
-fs.appendFileSync('greetings.txt', 'Hello World!', function (err) {
+
+
+fs.appendFileSync('greetings.txt', 'Hello ' + user.username + '!', function (err) {
   if (err) {
     console.log('unable to write to file');
   }
 });
-*/
