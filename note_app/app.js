@@ -5,13 +5,21 @@ console.log('Starting app.js');
 
 const fs = require('fs');
 const os = require('os');
+const _ = require('lodash');
 const notes = require('./notes.js');
+
+// console.log(_.isString(true));
+// console.log(_.isString('King'));
+
+var filteredArray = _.uniq(['King', 1, 'King', 1, 2, 3, 4]);
+// _.uniq removes duplicates
+console.log(filteredArray);
+
 
 // var add = notes.addNum(3, 6);
 // console.log(add);
 // how i did it above, how he did it below
-
-console.log('Result: ', notes.addNum(9, -2))
+// console.log('Result: ', notes.addNum(9, -2))
 
 
 // var res = notes.addNote();
