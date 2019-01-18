@@ -7,8 +7,10 @@ function () {
 () => {
 }
 
-arrow fucntions dont bind the this keyword nor the arguments array
+arrow fucntions dont bind the THIS keyword nor the arguments array
 */
+
+
 //
 // module.exports.addNote = () => {
 //   console.log('addNote');
@@ -22,8 +24,11 @@ arrow fucntions dont bind the this keyword nor the arguments array
 //   return a + b;
 // }
 
+
+
+
 var addNote = (title, body) => {
-  console.log('Adding note: ', title, body);
+  // console.log('Adding note: ', title, body);
 };
 
 var getAll = () => {
@@ -43,7 +48,7 @@ var removeNote = (title) => {
 // call the functions above with module.exports.addNote, module.exports.getAll etc... but all in one go with an object like so:
 
 module.exports = {
-  addNote: addNote, // in ES6 theres a short cut for identical object property and value 'addNote' without columns will do
+  addNote: addNote, // the property is addNote, the value is the var addNote ---- in ES6 theres a short cut for identical object property and value so 'addNote' without columns will do
   getAll,
   getNote,
   removeNote
