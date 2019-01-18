@@ -25,7 +25,7 @@ arrow fucntions dont bind the THIS keyword nor the arguments array
 // }
 
 
-const fs = require('fs');
+const fs = require('fs'); // no need to npm install fs - fs is packaged with node
 
 var addNote = (title, body) => {
   // console.log('Adding note: ', title, body);
