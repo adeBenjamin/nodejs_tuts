@@ -45,6 +45,14 @@ var addNote = (title, body) => {
 
   }
 
+  // DUPLICATE NOTES
+  // to avoid duplicate notes. loop through notes stored in an array, all the notes inside note array in duplicateNotes and using .filter (an array method that takes a callback function (and argument) ) to check for duplicate titles
+  // var duplicateNotes = notes.filter((note) => {
+  //   return note.title === title; // // this gets called once for every item in the notes ARRAY --- will check each note in the notes ARRAY and return a true or false value to notes.filter which keeps or rejects the note in the NEW duplicateNotes ARRAY --- if note.title != title it will return false and duplicateNotes will be empty for notes.push to do its work.
+  // }); // the callback (ARROW) function in .filter can be simplified in ES6 to (note) => note.title === tite; removing the {return ;} leaving the argument on the left and the single line statement on the right
+  // it BECOMES:
+  var duplicateNotes = notes.filter((note) => note.title === title);
+
   notes.push(note); // the .push method pushes (note) into the notes array
   // next we need to update the file
   fs.writeFileSync('notes-data.json', JSON.stringify(notes)); // which should create a new file called notes-data and store in it the strigified version of the notes ARRAY (which contains each note object)
