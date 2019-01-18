@@ -36,16 +36,14 @@ var addNote = (title, body) => {
   }; // the new indvidual note being added
 
   try {
-
+    // to make sure not to overwrite notes, check the current notes ARRAY for content/string before pushing a new note
+    // note this program will crash the first time cos there is no notes-data.son file to check
+    // hence INSERT 'dont overwrite code' in a 'TRY CATCH'?
+    var notesString = fs.readFileSync('notes-data.json'); // reads the current file, grabs the content and stores it in notesString.
+    notes = JSON.parse(notesString); // since notesString is a string, parse it back to JS object in the ARRAY
   } catch (e) {
 
   }
-
-  // to make sure not to overwrite notes, check the current notes ARRAY for content/string before pushing a new note
-  // note this program will crash the first time cos there is no notes-data.son file to check
-  // hence use 'try catch'?
-  var notesString = fs.readFileSync('notes-data.json'); // reads the current file, grabs the content and stores it in notesString.
-  notes = JSON.parse(notesString); // since notesString is a string, parse it back to JS object in the ARRAY
 
   notes.push(note); // the .push method pushes (note) into the notes array
   // next we need to update the file
