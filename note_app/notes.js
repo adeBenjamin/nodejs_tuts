@@ -43,7 +43,7 @@ var addNote = (title, body) => {
     notes = JSON.parse(notesString); // since notesString is a string, parse it back to JS object in the ARRAY
   } catch (e) {
 
-  }
+  };
 
   // DUPLICATE NOTES
   // to avoid duplicate notes. loop through notes stored in an array, all the notes inside note array in duplicateNotes and using .filter (an array method that takes a callback function (and argument) ) to check for duplicate titles
@@ -53,9 +53,13 @@ var addNote = (title, body) => {
   // it BECOMES:
   var duplicateNotes = notes.filter((note) => note.title === title);
 
-  notes.push(note); // the .push method pushes (note) into the notes array
-  // next we need to update the file
-  fs.writeFileSync('notes-data.json', JSON.stringify(notes)); // which should create a new file called notes-data and store in it the strigified version of the notes ARRAY (which contains each note object)
+
+  if (duplicateNotes.length === 0) /*as in the length or number of items in the array*/ {
+    notes.push(note); // the .push method pushes (note) into the notes array
+    // next we need to update the file
+    fs.writeFileSync('notes-data.json', JSON.stringify(notes)); // which should create a new file called notes-data and store in it the strigified version of the notes ARRAY (which contains each note object)
+  }; // if no duplicates then allez! write file
+
 };
 
 var getAll = () => {
