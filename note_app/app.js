@@ -10,13 +10,15 @@ const yargs = require('yargs');
 //node modules I've written
 const notes = require('./notes.js');
 
-// argv is an arguments array of arguments passed in via cli. access the arguments via the process object and the argv method (arguments vector)
+// argv is an arguments array of arguments passed in via cli. access the arguments via the process object and the argv method (arguments vector) so i can call on the cli:
+// $ node app.js add --title=filenamehere --body="body content here"
+
 // console.log(process.argv);
 
 const argv = yargs.argv; // yargs.argv is where yargs library stores the arguments that the app runs with
 // var command = process.argv[2]; // [2] to access the 3rd (0, 1, 2) argument in the array using process.
 var command = argv._[0]; // using yargs to grab the first argument in the array
-console.log('Command: ', command);
+console.log('Command Used: ', command);
 console.log('Process: ', process.argv); // without yargs
 console.log('Yargs: ', argv); // using yargs (easier and cleaner recognition of arguments)
 

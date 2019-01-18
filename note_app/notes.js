@@ -25,10 +25,31 @@ arrow fucntions dont bind the THIS keyword nor the arguments array
 // }
 
 
-
+const fs = require('fs');
 
 var addNote = (title, body) => {
   // console.log('Adding note: ', title, body);
+  var notes = []; // empty array of notes until a new 'var note' is added
+  var note = {
+    title, // OR title: title ES5 - identical values. --- title value here = first argument in the addNote var
+    body
+  }; // the new indvidual note being added
+
+  try {
+
+  } catch (e) {
+
+  }
+
+  // to make sure not to overwrite notes, check the current notes ARRAY for content/string before pushing a new note
+  // note this program will crash the first time cos there is no notes-data.son file to check
+  // hence use 'try catch'?
+  var notesString = fs.readFileSync('notes-data.json'); // reads the current file, grabs the content and stores it in notesString.
+  notes = JSON.parse(notesString); // since notesString is a string, parse it back to JS object in the ARRAY
+
+  notes.push(note); // the .push method pushes (note) into the notes array
+  // next we need to update the file
+  fs.writeFileSync('notes-data.json', JSON.stringify(notes)); // which should create a new file called notes-data and store in it the strigified version of the notes ARRAY (which contains each note object)
 };
 
 var getAll = () => {
