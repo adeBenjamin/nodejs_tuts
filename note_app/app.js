@@ -8,7 +8,7 @@ const _ = require('lodash');
 const yargs = require('yargs');
 
 //node modules I've written
-const notes = require('./notes.js');
+  const notes = require('./notes.js');
 
 // argv is an arguments array of arguments passed in via cli. access the arguments via the process object and the argv method (arguments vector) so i can call on the cli:
 // $ node app.js add --title=filenamehere --body="body content here"
