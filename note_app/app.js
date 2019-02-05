@@ -27,10 +27,7 @@ if (command === 'add') {
   var note = notes.addNote(argv.title, argv.body);
   if (note) {
     console.log('Note Created');
-    console.log('--');
-    // console.log('Title:' + note.title); OR using ES^ syntax with template strings ``
-    console.log(`Title: ${note.title}`);
-    console.log(`Body: ${note.body}`);
+    notes.logNote(note);
   } else {
     console.log('Note title taken. Choose a new title');
   }
@@ -42,11 +39,9 @@ if (command === 'add') {
   var note = notes.getNote(argv.title, argv.body);
   if (note) {
     console.log('Note Found');
-    console.log('----');
-    console.log(`Title: ${note.title}`);
-    console.log(`Body: ${note.body}`);
+    notes.logNote(note);
   } else {
-    console.log('Note not found')
+    console.log('Note not found');
   }
 } else if (command === 'remove') {
   // console.log('Removing note');

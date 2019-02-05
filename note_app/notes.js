@@ -130,11 +130,11 @@ var removeNote = (title) => {
 };
 
 var logNote = (note) => {
-  console.log('---- your note ----');
+  console.log('---- your note below ----');
   // console.log('Title:' + note.title); OR using ES6 syntax with template strings ``
   console.log(`Title: ${note.title}`);
   console.log(`Body: ${note.body}`);
-}
+};
 
 // we have access to a variable inside all node files called module [use console.log(module) to see it] inside module property is an export object.
 // module.exports allows us to set properties that we can accss in app.js [in app.js you need require('./notes.js')]
@@ -144,5 +144,6 @@ module.exports = {
   addNote: addNote, // the property is addNote, the value is the var addNote ---- in ES6 theres a short cut for identical object property and value so 'addNote' without columns will do
   getAll,
   getNote,
-  removeNote
+  removeNote,
+  logNote
 };
