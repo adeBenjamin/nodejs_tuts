@@ -42,7 +42,9 @@ if (command === 'add') {
   notes.getNote(argv.title);
 } else if (command === 'remove') {
   // console.log('Removing note');
-  notes.removeNote(argv.title);
+  var noteRemoved = notes.removeNote(argv.title);
+  var message = noteRemoved ? 'Note was removed' : 'Note not found'; //simple 'ternary operator' used instead of if statement first part is true : false epression on the second part
+  console.log(message);
 } else {
   console.log('Command not recognised');
 }

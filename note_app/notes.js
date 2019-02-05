@@ -110,7 +110,17 @@ var getNote = (title) => {
 };
 
 var removeNote = (title) => {
-  console.log('Removing note: ', title);
+  // to remove notes return the fetchNotes array to var = notes
+  var notes = fetchNotes();
+  // next filter out titles that are not equal to the title you want to remove.
+  // take the notes array filter out any note that has the same (title) log whats left after filtering in the filteredNotes variable
+  var filteredNotes = notes.filter((note) => note.title !== title);
+  saveNotes(filteredNotes);
+
+
+  // by comparing notes array vs the filteredNotes array you can tell if a note was removed or not
+  return notes.length !== filteredNotes.length;
+  // returns true if no note was removed or fals if a note was removed.
 };
 
 // we have access to a variable inside all node files called module [use console.log(module) to see it] inside module property is an export object.
