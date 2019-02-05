@@ -25,6 +25,15 @@ console.log('Yargs: ', argv); // using yargs (easier and cleaner recognition of 
 if (command === 'add') {
   // console.log('Adding new note');
   var note = notes.addNote(argv.title, argv.body);
+  if (note) {
+    console.log('Note Created');
+    console.log('--');
+    // console.log('Title:' + note.title); OR using ES^ syntax with template strings ``
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+  } else {
+    console.log('Note title taken. Choose a new title');
+  }
 } else if (command === 'list') {
   // console.log('Listing all notes');
   notes.getAll();
