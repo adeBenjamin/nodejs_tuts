@@ -106,7 +106,13 @@ var getAll = () => {
 };
 
 var getNote = (title) => {
-  console.log('Getting note: ', title);
+  // console.log('Getting note: ', title);
+  var notes = fetchNotes();
+  var checkNotes = notes.filter((note) => note.title === title);
+  return checkNotes[0]; // if the  function returns no notes the arrray will return undefines which will cause the else clause to run 'note not found'
+  /* btw you could have written the whole arrow function rather than the condition in the fucntion - ES6 shortcut: notes.filter((note) => {
+    return note.title === title;
+  })*/
 };
 
 var removeNote = (title) => {
@@ -122,6 +128,13 @@ var removeNote = (title) => {
   return notes.length !== filteredNotes.length;
   // returns true if no note was removed or fals if a note was removed.
 };
+
+var logNote = (note) => {
+  console.log('---- your note ----');
+  // console.log('Title:' + note.title); OR using ES6 syntax with template strings ``
+  console.log(`Title: ${note.title}`);
+  console.log(`Body: ${note.body}`);
+}
 
 // we have access to a variable inside all node files called module [use console.log(module) to see it] inside module property is an export object.
 // module.exports allows us to set properties that we can accss in app.js [in app.js you need require('./notes.js')]

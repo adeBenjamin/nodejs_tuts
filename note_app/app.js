@@ -19,7 +19,7 @@ const argv = yargs.argv; // yargs.argv is where yargs library stores the argumen
 // var command = process.argv[2]; // [2] to access the 3rd (0, 1, 2) argument in the array using process.
 var command = argv._[0]; // using yargs to grab the first argument in the array
 console.log('Command Used: ', command);
-console.log('Process: ', process.argv); // without yargs
+// console.log('Process: ', process.argv); // without yargs
 console.log('Yargs: ', argv); // using yargs (easier and cleaner recognition of arguments)
 
 if (command === 'add') {
@@ -39,7 +39,15 @@ if (command === 'add') {
   notes.getAll();
 } else if (command === 'read') {
   // console.log('Reading note');
-  notes.getNote(argv.title);
+  var note = notes.getNote(argv.title, argv.body);
+  if (note) {
+    console.log('Note Found');
+    console.log('----');
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+  } else {
+    console.log('Note not found')
+  }
 } else if (command === 'remove') {
   // console.log('Removing note');
   var noteRemoved = notes.removeNote(argv.title);
