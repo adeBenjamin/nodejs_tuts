@@ -1,4 +1,4 @@
-console.log('Staring notes.js');
+// console.log('Starting notes.js');
 
 /*
 ARROW FUNCTIONS SYNTAX
