@@ -130,7 +130,8 @@ var removeNote = (title) => {
 };
 
 var logNote = (note) => {
-  console.log('---- your note below ----');
+  debugger; // to help debug on the terminal
+  console.log('----- your note below ----');
   // console.log('Title:' + note.title); OR using ES6 syntax with template strings ``
   console.log(`Title: ${note.title}`);
   console.log(`Body: ${note.body}`);
