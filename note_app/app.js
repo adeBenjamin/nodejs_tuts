@@ -33,7 +33,11 @@ if (command === 'add') {
   }
 } else if (command === 'list') {
   // console.log('Listing all notes');
-  notes.getAll();
+  var allNotes = notes.getAll();
+  console.log(`Printing ${allNotes.length} note(s).`);
+  allNotes.forEach((note) => {
+    notes.logNote(note)
+  }); // forEach note in the allNotes array call note.logNote (callback function)
 } else if (command === 'read') {
   // console.log('Reading note');
   var note = notes.getNote(argv.title, argv.body);

@@ -102,7 +102,8 @@ var addNote = (title, body) => {
 
 
 var getAll = () => {
-  console.log('Getting all notes: ');
+  //console.log('Getting all notes: ');
+  return fetchNotes();
 };
 
 var getNote = (title) => {
@@ -130,7 +131,7 @@ var removeNote = (title) => {
 };
 
 var logNote = (note) => {
-  debugger; // to help debug on the terminal
+  // debugger; debug break point to help debug on the terminal
   console.log('----- your note below ----');
   // console.log('Title:' + note.title); OR using ES6 syntax with template strings ``
   console.log(`Title: ${note.title}`);
