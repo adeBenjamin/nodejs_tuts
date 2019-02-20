@@ -21,7 +21,7 @@ const yargs = require('yargs');
               /* ----- YARGS NEXT LEVEL ------*/
 
 // const argv = yargs.command().help().argv
-// add .command() function takes 3 arguments: command name, simple command description and lastly an object to specify what optins the command requires
+// add .command() function takes 3 arguments: command name, simple command description and lastly an object to specify what options the command requires
 // .help() it sets up yargs to return useful info when anyone runs 'node app.js --help' for examples
 
 const titleOptions = {
